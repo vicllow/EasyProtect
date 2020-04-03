@@ -1,0 +1,32 @@
+on load:
+	set {pref} to "&f&l[&a&lEasy&c&lProtect&f&l] -"
+	set {perm} to "easy.protect"
+	set {pl-mess} to "&e&l You do not have permission to this command"
+	set {ver-mess} to "&e&l You do not have permission to this command"
+	set {?-mess} to "&e&l You do not have permission to this command"
+	set {me-mess} to "&e&l You do not have permission to this command"
+	set {seed-mess} to "&e&l You do not have permission to this command"
+	stop
+
+on command:    
+	if command is "pl" or "plugins" or "bukkit:pl" or "bukkit:plugins":
+		if player doesn't have permission "%{perm}%":
+			message "%{pref}%%{pl-mess}%"
+			cancel event
+	if command is "ver" or "version" or "bukkit:ver" or "bukkit:version":
+		if player doesn't have permission "%{perm}%":
+			message "%{pref}%%{ver-mess}%"
+			cancel event
+	if command is "help" or "?" or "bukkit:help" or "bukkit:?":
+		if player doesn't have permission "%{perm}%":
+			message "%{pref}%%{?-mess}%"
+			cancel event
+	if command is "me" or "minecraft:me":
+		if player doesn't have permission "%{perm}%":
+			message "%{pref}%%{me-mess}%"
+			cancel event
+	if command is "seed" or "minecraft:seed":
+		if player doesn't have permission "%{perm}%":
+			message "%{pref}%%{seed-mess}%"
+			cancel event
+	stop			
